@@ -12,10 +12,16 @@
 
 ## 下载
 
-预编译的单文件 win-x64 程序见
-[Releases](https://github.com/ffeus/WinTuner/releases/latest) 页面
-（`WinTuner-cli-win-x64.exe`、`WinTuner-gui-win-x64.exe`），旁边附有
-`SHA256SUMS.txt` 校验文件。也可以从源码构建（见下）。
+预编译的 win-x64 程序见
+[Releases](https://github.com/ffeus/WinTuner/releases/latest) 页面：
+
+| 文件 | 说明 |
+|---|---|
+| `WinTuner-cli-win-x64.exe` | 命令行版 —— 单文件，免装 .NET 运行时。 |
+| `WinTuner-gui-win-x64.zip` | 图形界面版 —— **请先解压**，再运行里面的 `WinTuner.exe`。WPF 需要它的原生 DLL 与 exe 放在一起，所以这版以「文件夹打包成 zip」的形式发布。 |
+| `SHA256SUMS.txt` | 上述文件的 SHA256 校验值。 |
+
+也可以从源码构建（见下）。
 
 ## 为什么还要再造一个调优工具？
 

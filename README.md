@@ -14,10 +14,16 @@ Declarative, **rollback-safe** tuning for Windows — built around one rule:
 
 ## Download
 
-Prebuilt single-file win-x64 binaries are on the
-[Releases](https://github.com/ffeus/WinTuner/releases/latest) page
-(`WinTuner-cli-win-x64.exe`, `WinTuner-gui-win-x64.exe`), alongside
-`SHA256SUMS.txt`. Or build from source (below).
+Prebuilt win-x64 builds are on the
+[Releases](https://github.com/ffeus/WinTuner/releases/latest) page:
+
+| File | Notes |
+|---|---|
+| `WinTuner-cli-win-x64.exe` | Command line — single file, no .NET runtime required. |
+| `WinTuner-gui-win-x64.zip` | Desktop UI — **unzip first**, then run `WinTuner.exe`. WPF needs its native DLLs next to the exe, so this ships as a folder in a zip. |
+| `SHA256SUMS.txt` | SHA256 checksums for both. |
+
+Or build from source (below).
 
 ## Why another tuning tool?
 

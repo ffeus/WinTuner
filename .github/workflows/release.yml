@@ -26,18 +26,24 @@ jobs:
       - name: Publish CLI (win-x64, single file)
         run: dotnet publish src/WinTuner.Cli --configuration Release --runtime win-x64 --self-contained true -p:PublishSingleFile=true -p:EnableCompressionInSingleFile=true --output dist/cli
 
-      - name: Publish GUI (win-x64, single file)
-        run: dotnet publish src/WinTuner.Gui --configuration Release --runtime win-x64 --self-contained true -p:PublishSingleFile=true -p:EnableCompressionInSingleFile=true --output dist/gui
+      - name: Publish GUI (win-x64, folder)
+        run: dotnet publish src/WinTuner.Gui --configuration Release --runtime win-x64 --self-contained true --output dist/gui
 
-      - name: Collect artifacts and generate checksums
+      - name: Package assets and generate checksums
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force -Path dist/assets | Out-Null
-          # Rename to unambiguous asset names (wintuner.exe vs WinTuner.exe collide on Windows).
-          Copy-Item dist/cli/wintuner.exe dist/assets/WinTuner-cli-win-x64.exe
-          Copy-Item dist/gui/WinTuner.exe  dist/assets/WinTuner-gui-win-x64.exe
 
-          $lines = Get-ChildItem dist/assets -Filter *.exe | Sort-Object Name | ForEach-Object {
+          Copy-Item dist/cli/wintuner.exe dist/assets/WinTuner-cli-win-x64.exe
+
+          # WPF loads native DLLs (PresentationNative, wpfgfx, D3DCompiler, PenImc,
+          # vcruntime140) that CANNOT be embedded in a single-file bundle. Shipping
+          # only the bare exe makes it crash with DllNotFoundException before the
+          # window appears, so the GUI ships as a folder zipped with those DLLs.
+          Get-ChildItem -Path dist/gui -Recurse -Include *.pdb,*.xml | Remove-Item -Force
+          Compress-Archive -Path dist/gui/* -DestinationPath dist/assets/WinTuner-gui-win-x64.zip -Force
+
+          $lines = Get-ChildItem dist/assets -File | Sort-Object Name | ForEach-Object {
             $hash = (Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLower()
             '{0}  {1}' -f $hash, $_.Name
           }
@@ -51,7 +57,7 @@ jobs:
         run: |
           gh release create "${{ github.ref_name }}" `
             dist/assets/WinTuner-cli-win-x64.exe `
-            dist/assets/WinTuner-gui-win-x64.exe `
+            dist/assets/WinTuner-gui-win-x64.zip `
             dist/assets/SHA256SUMS.txt `
             --title "${{ github.ref_name }}" `
             --generate-notes
