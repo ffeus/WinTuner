@@ -24,10 +24,10 @@ jobs:
         run: dotnet test --configuration Release
 
       - name: Publish CLI (win-x64, single file)
-        run: dotnet publish src/WinTuner.Cli --configuration Release --runtime win-x64 --self-contained true -p:PublishSingleFile=true --output dist/cli
+        run: dotnet publish src/WinTuner.Cli --configuration Release --runtime win-x64 --self-contained true -p:PublishSingleFile=true -p:EnableCompressionInSingleFile=true --output dist/cli
 
       - name: Publish GUI (win-x64, single file)
-        run: dotnet publish src/WinTuner.Gui --configuration Release --runtime win-x64 --self-contained true -p:PublishSingleFile=true --output dist/gui
+        run: dotnet publish src/WinTuner.Gui --configuration Release --runtime win-x64 --self-contained true -p:PublishSingleFile=true -p:EnableCompressionInSingleFile=true --output dist/gui
 
       - name: Collect artifacts and generate checksums
         shell: pwsh

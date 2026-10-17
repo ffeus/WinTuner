@@ -33,6 +33,7 @@ artifacts/
 
 # Publish output
 publish/
+dist/
 *.publishsettings
 
 # OS
