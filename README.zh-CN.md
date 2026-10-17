@@ -18,7 +18,7 @@
 | 文件 | 说明 |
 |---|---|
 | `WinTuner-cli-win-x64.exe` | 命令行版 —— 单文件，免装 .NET 运行时。 |
-| `WinTuner-gui-win-x64.zip` | 图形界面版 —— **请先解压**，再运行里面的 `WinTuner.exe`。WPF 需要它的原生 DLL 与 exe 放在一起，所以这版以「文件夹打包成 zip」的形式发布。 |
+| `WinTuner-gui-win-x64.zip` | 图形界面版 —— **解压后运行 `WinTuner\WinTuner.exe`**。WPF 需要它的原生 DLL 与 exe 放在一起，所以这版以「文件夹打包成 zip」的形式发布。 |
 | `SHA256SUMS.txt` | 上述文件的 SHA256 校验值。 |
 
 也可以从源码构建（见下）。

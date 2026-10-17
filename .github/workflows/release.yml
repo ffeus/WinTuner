@@ -40,8 +40,13 @@ jobs:
           # vcruntime140) that CANNOT be embedded in a single-file bundle. Shipping
           # only the bare exe makes it crash with DllNotFoundException before the
           # window appears, so the GUI ships as a folder zipped with those DLLs.
+          #
+          # Stage everything under one top-level folder so extracting the zip can
+          # never scatter ~460 files into the user's current directory.
           Get-ChildItem -Path dist/gui -Recurse -Include *.pdb,*.xml | Remove-Item -Force
-          Compress-Archive -Path dist/gui/* -DestinationPath dist/assets/WinTuner-gui-win-x64.zip -Force
+          New-Item -ItemType Directory -Force -Path dist/stage/WinTuner | Out-Null
+          Copy-Item -Path dist/gui/* -Destination dist/stage/WinTuner -Recurse -Force
+          Compress-Archive -Path dist/stage/WinTuner -DestinationPath dist/assets/WinTuner-gui-win-x64.zip -Force
 
           $lines = Get-ChildItem dist/assets -File | Sort-Object Name | ForEach-Object {
             $hash = (Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLower()

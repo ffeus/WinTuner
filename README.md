@@ -20,7 +20,7 @@ Prebuilt win-x64 builds are on the
 | File | Notes |
 |---|---|
 | `WinTuner-cli-win-x64.exe` | Command line — single file, no .NET runtime required. |
-| `WinTuner-gui-win-x64.zip` | Desktop UI — **unzip first**, then run `WinTuner.exe`. WPF needs its native DLLs next to the exe, so this ships as a folder in a zip. |
+| `WinTuner-gui-win-x64.zip` | Desktop UI — **unzip, then run `WinTuner\WinTuner.exe`**. WPF needs its native DLLs next to the exe, so this ships as a folder in a zip. |
 | `SHA256SUMS.txt` | SHA256 checksums for both. |
 
 Or build from source (below).
