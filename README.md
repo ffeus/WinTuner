@@ -38,6 +38,13 @@ dotnet build -c Release
 dotnet test
 ```
 
+To produce a single-file, self-contained binary:
+
+```powershell
+dotnet publish src/WinTuner.Cli -c Release -r win-x64 --self-contained -p:PublishSingleFile=true
+dotnet publish src/WinTuner.Gui -c Release -r win-x64 --self-contained -p:PublishSingleFile=true
+```
+
 ## CLI usage
 
 ```text

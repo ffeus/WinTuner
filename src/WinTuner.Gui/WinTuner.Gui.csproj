@@ -7,9 +7,7 @@
     <RootNamespace>WinTuner.Gui</RootNamespace>
     <AssemblyName>WinTuner</AssemblyName>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <PublishSingleFile Condition="'$(Configuration)' == 'Release'">true</PublishSingleFile>
-    <SelfContained Condition="'$(Configuration)' == 'Release'">true</SelfContained>
-    <RuntimeIdentifier Condition="'$(Configuration)' == 'Release'">win-x64</RuntimeIdentifier>
+    <!-- Single-file/self-contained publishing is opt-in at publish time; see README.md. -->
   </PropertyGroup>
 
   <ItemGroup>
