@@ -2,10 +2,20 @@
 
 [English](README.md) | **简体中文**
 
+[![build](https://github.com/ffeus/WinTuner/actions/workflows/build.yml/badge.svg)](https://github.com/ffeus/WinTuner/actions/workflows/build.yml)
+[![release](https://img.shields.io/github/v/release/ffeus/WinTuner?sort=semver)](https://github.com/ffeus/WinTuner/releases/latest)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 面向 Windows 的**声明式、可回滚**调优工具，只遵循一条铁律：**改动之前，必先快照。**
 
 > 状态：早期骨架（v0.1）。架构与「更新控制」方案已端到端跑通；下方路线图是欢迎贡献的方向。
-> 目前仓库只提供源码，尚未发布预编译程序 —— 按下面的「快速开始」自行构建即可使用。
+
+## 下载
+
+预编译的单文件 win-x64 程序见
+[Releases](https://github.com/ffeus/WinTuner/releases/latest) 页面
+（`WinTuner-cli-win-x64.exe`、`WinTuner-gui-win-x64.exe`），旁边附有
+`SHA256SUMS.txt` 校验文件。也可以从源码构建（见下）。
 
 ## 为什么还要再造一个调优工具？
 

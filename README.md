@@ -2,11 +2,22 @@
 
 **English** | [简体中文](README.zh-CN.md)
 
+[![build](https://github.com/ffeus/WinTuner/actions/workflows/build.yml/badge.svg)](https://github.com/ffeus/WinTuner/actions/workflows/build.yml)
+[![release](https://img.shields.io/github/v/release/ffeus/WinTuner?sort=semver)](https://github.com/ffeus/WinTuner/releases/latest)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 Declarative, **rollback-safe** tuning for Windows — built around one rule:
 *nothing changes without a snapshot first.*
 
 > Status: early skeleton (v0.1). The architecture and the update-control plans
 > work end to end; the roadmap below is where contributions are welcome.
+
+## Download
+
+Prebuilt single-file win-x64 binaries are on the
+[Releases](https://github.com/ffeus/WinTuner/releases/latest) page
+(`WinTuner-cli-win-x64.exe`, `WinTuner-gui-win-x64.exe`), alongside
+`SHA256SUMS.txt`. Or build from source (below).
 
 ## Why another tuning tool?
 
