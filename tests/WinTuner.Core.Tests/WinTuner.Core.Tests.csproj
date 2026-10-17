@@ -5,6 +5,9 @@
     <IsPackable>false</IsPackable>
     <RootNamespace>WinTuner.Core.Tests</RootNamespace>
     <AssemblyName>WinTuner.Core.Tests</AssemblyName>
+    <!-- Needed so GlobalizationTests can exercise the same WPF language lookup
+         that runs when the GUI creates its main window. -->
+    <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>

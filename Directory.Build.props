@@ -8,9 +8,13 @@
     <Authors>WinTuner contributors</Authors>
     <Product>WinTuner</Product>
     <Description>Declarative, rollback-safe Windows update &amp; service tuning toolkit.</Description>
-    <RepositoryUrl>https://github.com/yourname/wintuner</RepositoryUrl>
+    <RepositoryUrl>https://github.com/ffeus/WinTuner</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <InvariantGlobalization>true</InvariantGlobalization>
+    <!-- Do NOT enable InvariantGlobalization here. WPF resolves the XAML language
+         (default "en-us") to a specific CultureInfo while creating a window; with
+         invariant globalization that lookup throws
+         "Cannot find non-neutral culture related to 'en-us'" and the GUI dies on
+         startup before the window appears. GlobalizationTests guards this. -->
   </PropertyGroup>
 </Project>
