@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Simplified Chinese README (`README.zh-CN.md`) with a step-by-step quick start.
+
 ## [0.1.0] - 2026-10-17
 
 ### Added
